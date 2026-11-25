@@ -81,4 +81,4 @@ São 3 tentativas. A cada erro o programa mostra quantas restam e, na terceira f
 
 - André Bezerra da Silva
 - Daniel de Souza Silva
-- Gabriel Silva Jeronimo
+- Gabriel Silva Jeronimo de Jesus
