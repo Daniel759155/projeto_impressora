@@ -1,76 +1,73 @@
 # 🖨️ Sistema de Controle de Impressora Elgin
-### *(Troque pelo nome do seu projeto)*
+Trabalho de Programação Orientada a Objetos (POO) com Java e impressora térmica Elgin i8 ou i9.
 ---
 
 ## 📘 Sobre o Projeto
 
-*(Explique em 3 a 5 linhas o que o sistema faz, quem desenvolveu e em qual disciplina.)*
-Exemplo: Este projeto foi desenvolvido por alunos para se comunicar com uma impressora térmica **Elgin i8/i9** usando a biblioteca `E1_Impressora01.dll`. O sistema tem login e um menu com operações de impressão. Faz parte da disciplina de **Programação Orientada a Objetos**.
+*Programa de console em Java que pede login, mostra um menu e envia comandos para a impressora Elgin: imprimir texto, QR Code, código de barras e cupons SAT, abrir a gaveta e tocar o bip. A comunicação é feita pela DLL da Elgin, chamada pelo Java através da biblioteca JNA (arquivo `ImpressoraDLL.java`).**.
 
 ---
 
 ## 🧰 Tecnologias Utilizadas
 
-- **Java** *(informe a versão que você usou)*
-- **IntelliJ IDEA** *(ou a IDE que usou)*
-- **JNA 5.15.0** (comunicação com a DLL)
-- **DLL E1_Impressora01** (SDK da Elgin)
-- **Impressora Elgin i8 ou i9** *(informe qual você usou nos testes)*
-
+- Java (JDK 17 ou superior)
+- JNA 5.15.0
+- DLL da Elgin (E1 Impressora, x64 e x86)
+- IntelliJ IDEA, Git e GitHub
 ---
 
 ## 📁 Estrutura do Projeto
 
-*(Liste suas pastas e classes e diga o que cada uma faz.)*
-
-```
-/src                      → Código-fonte
-   Main.java              → Inicia o programa
-   (suas classes aqui)    → Descreva o papel de cada uma
-/Bibliotecas E1 Impressora → DLLs da Elgin (x64 e x86)
-/libs Java                → jna-5.15.0.jar
-```
-
----
+- `Main.java`: faz o login e mostra o menu
+- `Usuario.java`: guarda login e senha e confere se estão certos
+- `Impressora.java`: guarda os dados da conexão e tem um método para cada operação
+- `ImpressoraDLL.java`: ligação do Java com a DLL (fornecido pelo professor)
+- `Bibliotecas E1 Impressora/`: DLL da Elgin
+- `libs Java/`: `jna-5.15.0.jar`
+- `XMLSAT.xml` e `CANC_SAT.xml`: cupons de exemplo
 
 ## ⚙️ Instalação e Execução
 
-*(Escreva o passo a passo para outra pessoa rodar o projeto, como no exemplo abaixo.)*
+## Como executar
 
-### 1. Baixar o projeto
-1. Acesse o repositório no GitHub.
-2. Clique em **Code → Download ZIP**.
-3. Extraia o arquivo.
+1. Abra a pasta do projeto no IntelliJ e confirme que o `jna-5.15.0.jar` está em Project Structure → Libraries.
+2. Em Run → Edit Configurations, confira se o Working directory é a pasta principal do projeto (onde está `Bibliotecas E1 Impressora`).
+3. Ligue a impressora, conecte o cabo USB e execute a classe `Main`.
 
-### 2. Abrir no IntelliJ IDEA
-1. **File → Open** e escolha a pasta extraída.
-2. Em **File → Project Structure → Libraries**, confirme que o `jna-5.15.0.jar` está adicionado.
-3. Conecte e ligue a impressora.
-4. Abra `Main.java` e clique em ▶️ **Run**.
+## Login de teste
 
----
+- Usuário: `admin`
+- Senha: `1234`
 
-## 🔐 Login
-
-*(Informe o usuário e a senha de teste e quantas tentativas são permitidas.)*
+São 3 tentativas. A cada erro o programa mostra quantas restam e, na terceira falha, encerra.
 
 ---
 
 ## 📋 Funcionalidades do Menu
-
-| Opção | O que faz |
-|---|---|
-| 1 | *(descreva)* |
-| 2 | *(descreva)* |
-| ... | ... |
-
----
+| # | Opção |
+|---|-------|
+| 1 | Configurar conexão |
+| 2 | Abrir conexão |
+| 3 | Fechar conexão |
+| 4 | Imprimir texto |
+| 5 | Imprimir QR Code |
+| 6 | Imprimir código de barras |
+| 7 | Imprimir XML SAT |
+| 8 | Imprimir XML de cancelamento SAT |
+| 9 | Abrir gaveta |
+| 10 | Sinal sonoro (bip) |
+| 0 | Sair |
 
 ## 🧪 Testes Realizados
 
-*(Liste o que você testou e o resultado. Ex.: login com senha errada 3 vezes, impressão de texto, QR Code, código de barras, bip, gaveta.)*
+- [x] Login correto e login errado 3 vezes
+- [ ] Abrir e fechar a conexão
+- [ ] Tentar imprimir com a conexão fechada
+- [ ] Imprimir texto, QR Code e código de barras
+- [ ] Imprimir XML SAT e XML de cancelamento
+- [ ] Abrir gaveta e sinal sonoro
+- [x] Digitar letras onde se espera número
 
----
 
 ## 📚 Documentação Adicional
 
@@ -80,7 +77,8 @@ Exemplo: Este projeto foi desenvolvido por alunos para se comunicar com uma impr
 ---
 
 ## 👥 Autores
-*(em ordem alfabética)*
 
-- Nome Completo
-- Nome Completo
+
+- André Bezerra da Silva
+- Daniel de Souza Silva
+- Gabriel Silva Jeronimo
